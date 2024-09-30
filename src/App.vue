@@ -1,5 +1,39 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+
+
+const HOST = import.meta.env.VITE_SMILE_HOST;
+const TOKEN = import.meta.env.VITE_SMILE_TOKEN;
+
+import 'ion-smile/style.css';
+import ionSmile from 'ion-smile';
+
+const config = {
+                credential:{
+                    host    : HOST, 
+                    token   : TOKEN, 
+                    userkey : "user1", 
+                    session : "example-session"
+                },
+                dom:{
+                    moveable:true // default false
+                }
+            }
+
+const smile = new ionSmile(config);
+    
+    smile.init();
+
+    smile.on("ready",(e)=>{
+        if(e.module="ai" && e.status){
+            smile.start()
+        }
+    });
+    smile.on("alert",(e)=>{
+        if(e.status){ // status = true, if fraud detected
+            alert(e.description)
+        }
+    });
 </script>
 
 <template>

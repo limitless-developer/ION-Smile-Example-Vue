@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ion-smile": "^1.4.3",
     "vue": "^3.4.37"
   },
   "devDependencies": {
