@@ -30,8 +30,10 @@ const smile = new ionSmile(config);
         }
     });
     smile.on("alert",(e)=>{
+        console.log(e);
+        
         if(e.status){ // status = true, if fraud detected
-            alert(e.description)
+            // alert(e.description)
         }
     });
 </script>
